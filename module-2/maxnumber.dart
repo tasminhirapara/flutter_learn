@@ -1,30 +1,21 @@
-// 13. Write a program to find the Max number from the given three
-// number using Nested If
+// Write a program to find out the max from given number (E.g. No: -1562
+// Max number is 6
 
 import 'dart:io';
 
 void main()
 {
-  stdout.write("enter number 1 :");
-  int n1= int.parse(stdin.readLineSync().toString());
-
-  stdout.write("enter number 2 :");
-  int n2= int.parse(stdin.readLineSync().toString());
-
-  stdout.write("enter number 3 :");
-  int n3= int.parse(stdin.readLineSync().toString());
-
-  if(n1>n2 && n1>n3)
+  stdout.write("enter your number :");
+  int num= int.parse(stdin.readLineSync().toString());
+  int m=0;
+  while(num>0)
     {
-      print("max no is $n1");
+      int n=num%10;
+      if(n>m)
+        {
+          m=n;
+        }
+      num=num~/10;
     }
-  else if(n2>n1 && n2>n3)
-    {
-      print("max no is $n2");
-
-    }
-  else
-    {
-      print("max no is $n3");
-    }
+    print(m);
 }
