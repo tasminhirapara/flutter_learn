@@ -1,0 +1,375 @@
+Q : What is inheritence?
+
+->  When you can access all the property like variable and method of base class from the object of derived class
+    than it is called inheritence.
+->  extends keyword use to achive inheritence.
+    -There are 5 types of inheritence 
+        1)Single inheritence
+        2)Multi-level inheritence
+        3)Multiple inheritence
+        4)Hierchical inheritence
+        5)Hybrid inheritence
+
+        
+->  example :- 
+    class A {
+        var num1;
+        A(this.num1);
+    }
+
+    class B extends A {
+        B(super.num1);
+        disp() {
+        print(super.num1);
+        }
+    }
+
+    void main(List<String> args) {
+        var object1 = B(24);
+        object1.disp();
+    }
+
+
+Q :- A)Which Inheritence is not supported by Dart? B)Why? C)What is Advantages of Inheritence.
+
+A) -> Multiple Inheritence is not supported by Dart.
+
+B) -> It doesn't supported Multiple Inheritence because of it can lead to ambiguity.
+      because of some classes may have same method than which method should dart called that's a reason which
+      dart doesn't supported Multiple Inheritence.
+
+C) -> Advantages of Inheritence
+    
+    - You can access member variable or method of parent class from one object.
+    - you can use parent class variable and method in derived class that supoort code reusablity.
+    - Through the one object you can access all this accessiblity of our code is easier.
+    - With the use of inheritance our code will be cleaner and simple.
+
+Q : A) Difference between inheritance & encapsulation. B) Difference between Inheritance & abstraction
+
+A) -> Inheritance ::
+
+      - In inheritance child class acess method and variables of parrent class.
+      - It Support code reusablity.  
+      - Use extends keyword to achive inheritance.
+      - Inheritance done at class level.
+
+
+      Encapsulation ::
+      - In dart encapsulation is mechenism for hiding sensitive and important data from user.
+      - It Support data hiding feature.
+      - Throgh getter and setter you can make field private.
+      - encapsulation done at the library level.
+
+B) -> Abstraction ::
+
+      - It is a part of data encapsulation that allow user to hide internal working of function.
+      - Use abstract keyword to declare method or class abstract.
+      - Throgh abstract method you can achive method overriding.
+
+
+Q : Difference between Inheritence and Polymorphism.
+
+-> Inheritance : 
+      - In inheritance child class acess method and variables of parrent class.
+      - It Support code reusablity.  
+      - Use extends keyword to achive inheritance.
+      - Inheritance done at class level.
+      - It is more static.
+    
+    Polymorphism :
+      - Polymorphism simply means multiple form of single function.
+      - It uses at functional or method level.
+      - It is dynemic.
+      - achive through interface.
+
+Q : Can we override static method in dart? 
+
+->  No we can't override static method in dart.
+   
+   -Static method only access by it's class name.
+    
+   -It can't be access or called by any instance of class
+
+   -It gives compile time error if you try to override static method in dart.
+
+Q : Can we overload static method in dart ?
+
+->  First of all dart doesn't support method overloading.  
+
+  - We can't overload static method in dart.
+
+  - It gives compiler error if you try to overload static method in dart.
+  
+
+Q : A) Can class implements more than one interface? B) Can class extends more than one class in dart ?
+
+--> A) Yes. class can be implements more than one interface at once.
+       Through this we can achive multiple inheritence.
+
+       //example
+       abstract class A2
+       {
+              void a2();
+
+       }
+       abstract class B2
+       {
+              void b2();
+
+       }
+
+       class MultipleEx implements A2,B2
+       {
+              void mul()
+              {
+                     print("Multiple Called");
+              }
+
+              void a2()
+              {
+                     print("a2 called");
+              }
+              void b2()
+              {    
+                     print("b2 called");
+              }
+
+       }
+       void main()
+       {
+              var m1 = MultipleEx();
+              m1.a2();
+              m1.b2();
+       }
+
+--> B) No class doesn't extends more than one class at once.
+       
+      -Because of dart doesn't support multiple inheritence this is not to be possible.
+
+      -It gives an error if you try to extends more than one class in dart.
+
+
+Q : Can an interface extends more than one interface in dart ?
+
+-->implement keyword is use to implement interface class.
+
+   -Yes, dart can implement more than one interface
+   
+   //example
+   class A {}
+   class B {}
+   class C implements A, B{}
+
+
+Q : What will happen if a class implements two interface and they both have a method with same name and signature ?
+
+--> The class which implements interface will override the method.
+
+    //ex.
+    class A {
+        disp(){
+            print(" In class A");
+        }
+    }
+    class B {
+        disp() {
+            print("In class B");
+        }
+    }
+    class C implements A, B {
+         @override
+         disp() {
+            print("disp in C");
+        }
+    }
+    main() {
+        var c1 = C();
+        c1.disp();//It will print disp in C
+    }
+
+Q : A) Can we pass an object of a subclass to a method expecting an object of the super class?
+    B) Are static member inherited to subclass?
+
+--> A) Yes we can pass an object of a subclass to a method of superclass because subclass and superclass is related by inheritence.
+
+--> B) No static member doesn't inherit to subclass. 
+       It's scoper only available to it's class.
+
+Q : A)What happens if the parent and the child class have a field with same identifier?
+    B)Are constructors and initializers also inherited to sub classes?
+
+--> A) Child class field to be printed if parent class and child class have field with same identifier.
+       We make an object of child class so it gives importance to field which has in it's scope
+
+    B) Constructer and initializers doesn't inherit to subclass.
+       But you can call constructor of parent class with the use of super keyword in the subclass.
+
+Q : How do you restrict a member of a class from inheriting by its sub classes?
+
+--> With th declaration of final class we can restrict a member of class from inheriting by its subclass.
+
+    e.g. 
+    final class A {
+        var a = 3;
+    }
+    class B extends A{//genrate error 
+
+    }
+
+Q : How do you implement multiple inheritence in dart?
+
+--> Through the use of interface we can achive multiple inheritence in dart.
+
+    //example
+    class A {
+        var a;
+    }
+
+    class B {
+        var b;
+    }   
+
+    class Test implements A, B {
+        @override
+        var a;
+
+        @override
+        var b;
+        Test(this.a, this.b);
+
+        dispTotal() {
+        print("Total : ${a + b}");
+        }
+    }
+
+    void main(List<String> args) {
+        var t1 = Test(2, 8);
+        t1.dispTotal();
+    }
+
+//hear class A and class B implement by class Test which show multiple inheritence achive Through the interface.
+
+Q : Can a class extends itself?
+
+->  No class can't extends itself.
+    If you do that than it genrates compiler error.
+    
+
+Q : How do you override a private method in Dart?
+
+-> We can override private method in dart by extends a class in which the private method declare.
+
+- e.g.
+abstract class Test {
+  _display();
+}
+
+class TestPrivateMethod extends Test {
+  @override
+  _display() {
+    print('Display Method');
+  }
+}
+
+void main() {
+  var t = TestPrivateMethod();
+  t._display();
+}
+
+
+Q : When to overload a method in Dart and when to override it?
+
+--> Dart doesn't support method overloading.
+    
+   -When you declare a method abstract or implement an interface which has method than you have to override it.
+
+Q : What the order is of extends and implements keyword on Dart class declaration? 
+
+--> First you have to add extends the class which you want to extend than implements interface which you want to implement
+
+    If you implements interface than extends class than it gives compiler error.
+
+Q : How do you prevent overriding a Dart method without using the final modifier?
+
+-- With the declareation of method as static we can achive prevent of method overriding.
+-- Other wise make class as sealed also prevent method from override.
+
+Q : What are the rules of method overriding?
+
+--> The method to be overridden must be written in the subclass, not in the same class.
+
+   -The return type and argument list must be the same as the method in the superclass.
+
+   -The constructor of the superclass cannot be inherited in a subclass.
+
+   -The methods defined in the child and the parent class should be the exact copy, from name to argument list except the content present inside the method.
+
+Q : Difference between method overriding and overloading in dart.
+
+--> Method Overriding ::
+    -Method overriding means when subclass has same method as parent class.
+
+    -It require inheritence.
+
+    -It support in dart.
+
+    Method Overloading ::
+    -Method overloading means a class has multiple method with same name but diffrent parameter or return type.
+
+    -It doesn't require inheritence.
+    
+    -It doesn't support in dart.
+
+Q : What happens when a class implements two interfaces and both declare field (variable) with same name?
+
+--> When you implements both interfaces with same field in class where you implements both interfaces field will be
+    override and you can assign some value to it.
+
+Q : Can a subclass instance method override a superclass static method? 
+
+--> No subclass instance method can't override a superclass static method.
+    static method doesn't support overriding.
+    static method only called with classname 
+    //e.g. 
+    class A {
+        static greet(String name) => "Hello Dear $name"
+    }
+    main() {
+        A.greet("Brijesh");//static method only called with classname.
+    }
+Q : Can a subclass static method hide superclass instance method?
+
+--> No subclass static method can't hide superclass instance method.
+    It gives compilation error if you do it.
+
+Q : Can a superclass access subclass member?
+
+--> No superclass doesn't access subclass member.
+    But you can access superclass member in subclass.For the method and constructer you can use super keword.
+    If you try to access subclass member in superclass than it gives an compiler error.
+
+    //example
+    class A {
+        var a = 4;
+    }
+    class B extends A {
+        disp() => "Superclass member a : $a"
+    }
+    main() {
+        var ob1 = B();
+        print("${ob1.disp()}");
+    }
+
+Q : Difference between object oriented and object based language.
+
+--> Object Oriented Language ::
+    -It support all the featuers of OOPS.
+    -Support featuers like : Inheritence, Polymorphism, Encapsulation, Abstraction etc.
+    -ex. Java,dart
+
+    
+    Object Based Language ::
+    -It doesn't support all the featuers of OOPS.
+    -It doesn't support featuers like Inheritence, Polymorphism etc.
+    -ex. Javascript,VB
